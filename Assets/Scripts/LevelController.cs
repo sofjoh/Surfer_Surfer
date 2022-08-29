@@ -3,15 +3,19 @@ using UnityEngine;
 public class LevelController : MonoBehaviour
 {
     private float speed;
+
+    private GameObject levelGenerator;
+    
     // Start is called before the first frame update
     void Start()
     {
-        speed = GameObject.Find("LevelGenerator").GetComponent<LevelGenerator>().ObstacleSpeed;
+        levelGenerator = GameObject.Find("LevelGenerator");
     }
 
     // Update is called once per frame
     void Update()
     {
+        speed = levelGenerator.GetComponent<LevelGenerator>().ObstacleSpeed;
         transform.Translate(Vector3.forward * -speed * Time.deltaTime);
 
         if (transform.position.z < -50)

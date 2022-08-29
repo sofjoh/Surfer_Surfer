@@ -10,7 +10,7 @@ public class LevelGenerator : MonoBehaviour
     public Transform StartTile;
     private int numberOfTiles;
 
-    public float ObstacleSpeed = 10f; 
+    public float ObstacleSpeed = 20f; 
     // Start is called before the first frame update
     void Start()
     {
