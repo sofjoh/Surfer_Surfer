@@ -10,7 +10,11 @@ public class LevelGenerator : MonoBehaviour
     public Transform StartTile;
     private int numberOfTiles;
 
-    public float ObstacleSpeed = 20f; 
+    public float ObstacleSpeed = 20f;
+    [Tooltip("How many seconds should pass before the obstacles move faster?")]
+    public float TimerForSpeedingUp = 20f;
+    [Tooltip("How much do you want to increase the speed?")]
+    public float SpeedToAdd = 1f; 
     // Start is called before the first frame update
     void Start()
     {

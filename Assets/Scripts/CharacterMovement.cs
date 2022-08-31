@@ -9,6 +9,7 @@ public class CharacterMovement : MonoBehaviour
     public Transform NodeMiddle; 
     public Transform NodeRight;
     private Transform currentNode;
+    public float JumpForce = 5f; 
     public enum Position
     {
         Left,

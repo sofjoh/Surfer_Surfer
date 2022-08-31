@@ -370,6 +370,8 @@ MonoBehaviour:
   Offset: 40
   StartTile: {fileID: 1868027719}
   ObstacleSpeed: 20
+  TimerForSpeedingUp: 20
+  SpeedToAdd: 1
 --- !u!4 &757965051
 Transform:
   m_ObjectHideFlags: 0
@@ -411,7 +413,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 800091137}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.94, z: -0.06}
+  m_LocalPosition: {x: 0, y: -1.03, z: -0.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 970037884}
@@ -435,6 +437,7 @@ MonoBehaviour:
   NodeLeft: {fileID: 2010828048}
   NodeMiddle: {fileID: 1801680090}
   NodeRight: {fileID: 436275691}
+  JumpForce: 15
 --- !u!54 &800091140
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -491,13 +494,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 804799880}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -1.39, z: -0}
+  m_LocalScale: {x: 1, y: 1.76, z: 0.45}
   m_Children: []
   m_Father: {fileID: 800091138}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!136 &804799882
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -589,7 +592,7 @@ Transform:
   m_GameObject: {fileID: 970037883}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.33, z: 1}
   m_Children: []
   m_Father: {fileID: 800091138}
   m_RootOrder: 0
