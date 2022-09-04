@@ -9,7 +9,6 @@ public class Obstacle1 : MonoBehaviour
     public float collisionSpeed = 0f; 
     public GameObject levelGenerator;
     public GameObject Shark;
-    public bool Dead;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -32,7 +31,7 @@ public class Obstacle1 : MonoBehaviour
 
         if (timer <= 0)
         {
-            Dead = true; 
+            //dead
         }
     }
 }

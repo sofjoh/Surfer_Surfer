@@ -19,6 +19,7 @@ public class LevelGenerator : MonoBehaviour
     void Start()
     {
         numberOfTiles = LevelParts.Length;
+        GenerateStartTile();
         GenerateStartLevel();
     }
 
@@ -35,6 +36,11 @@ public class LevelGenerator : MonoBehaviour
             var index = Random.Range(0, numberOfTiles);
             Instantiate(LevelParts[index], new Vector3(0, 0, Offset * (i+1)), transform.rotation);
         }
+    }
+
+    public void GenerateStartTile()
+    {
+        Instantiate(StartTile, new Vector3(0, 0, 0), transform.rotation);
     }
 
 }
