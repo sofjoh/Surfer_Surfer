@@ -3,25 +3,25 @@ using UnityEngine;
 
 public class Distance : MonoBehaviour
 {
-    public bool moving;
+   // public bool moving;
 
-    private float distance;
+    //private float distance;
 
-    public TextMeshProUGUI distanceText; 
+    //public TextMeshProUGUI distanceText; 
     // Start is called before the first frame update
     void Start()
     {
-        moving = true;
-        distance = 0;
+       // moving = true;
+        //distance = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (moving)
+        /*if (moving)
         {
             distance += Time.deltaTime;
             distanceText.text = distance.ToString("0") + " : Distance";
-        }
+        }*/
     }
 }
