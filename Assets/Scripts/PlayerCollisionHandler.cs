@@ -12,15 +12,15 @@ public class PlayerCollisionHandler : MonoBehaviour
     public GameObject LevelGenerator;
     public GameObject Shark;
 
-    public Transform startPoint;
+    //public Transform startPoint;
     
-    public Transform ForwardCheck;
-    public Transform RightCheck;
-    public Transform LeftCheck;
+    //public Transform ForwardCheck;
+    //public Transform RightCheck;
+    //public Transform LeftCheck;
 
     private RaycastHit hit;
 
-    public LayerMask collisionLayers;
+    //public LayerMask collisionLayers;
 
     public float checkRadius = 0.25f;
     public float maxDistance = 1f;
@@ -37,10 +37,6 @@ public class PlayerCollisionHandler : MonoBehaviour
         originalSpeed = LevelGenerator.GetComponent<LevelGenerator>().ObstacleSpeed;
     }
 
-    private void Update()
-    {
-
-    }
     
     private void sharkGoBack()
     {
@@ -80,8 +76,9 @@ public class PlayerCollisionHandler : MonoBehaviour
         if (other.CompareTag("Obstacle Block"))
         {
             float xOffset = Mathf.Abs((transform.position.x - other.transform.position.x));
+            Debug.Log("hit");
 
-            if (xOffset > 0.25f)
+            if (xOffset > 1f)
             {
                 BounceBack();
             }

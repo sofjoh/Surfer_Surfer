@@ -26,7 +26,6 @@ public class LevelController : MonoBehaviour
         if (timer > 0)
         {
             timer -= Time.deltaTime;
-            //Debug.Log(timer);
         }
 
         if (timer <= 0)
@@ -40,11 +39,7 @@ public class LevelController : MonoBehaviour
     public void SpeedUp()
     {
         NewSpeed = speed + speedToAdd;
-        //bugg: newSpeed blir hela tiden 70. Den funkar bara första iterationen.
-        //Debug.Log(NewSpeed);
         levelGenerator.GetComponent<LevelGenerator>().ObstacleSpeed = NewSpeed;
-       // Debug.Log(levelGenerator.GetComponent<LevelGenerator>().ObstacleSpeed);
-        //debugg säger att den ändrar speed men den ändrar inte den faktiska speeden.  
         timer = OriginalTimer; 
     }
     
