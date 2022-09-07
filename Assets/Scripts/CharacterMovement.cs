@@ -5,10 +5,13 @@ public class CharacterMovement : MonoBehaviour
 {
 
     public float Speed = 10f; 
+    
     public Transform NodeLeft; 
     public Transform NodeMiddle; 
     public Transform NodeRight;
-    private Transform currentNode;
+    
+   [HideInInspector] public Transform currentNode;
+   [HideInInspector] public Transform previousNode;
     public enum Position
     {
         Left,
@@ -16,23 +19,27 @@ public class CharacterMovement : MonoBehaviour
         Right
     };
     
-    Position currentPosition;
-    // Start is called before the first frame update
+    [HideInInspector] public Position currentPosition;
+    [HideInInspector] public Position previousPosition;
+    
     void Start()
     {
         currentPosition = Position.Middle;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        getKeyInput();
+        currentNode = NodeMiddle;
+        previousNode = currentNode;
+        previousPosition = currentPosition;
     }
     
+    void Update()
+    {
+       getKeyInput();
+    }
+
     public void getKeyInput()
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
+            previousPosition = currentPosition;
             currentPosition -= 1;
             if (Convert.ToInt32(currentPosition) < 0)
             {
@@ -42,6 +49,7 @@ public class CharacterMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.D))
         {
+            previousPosition = currentPosition;
             currentPosition += 1; 
             if (Convert.ToInt32(currentPosition) > 2)
             {
@@ -59,6 +67,20 @@ public class CharacterMovement : MonoBehaviour
                 break;
         }
         
+        switch (previousPosition)
+        {
+            case Position.Left: previousNode = NodeLeft; 
+                break;
+            case Position.Middle: previousNode = NodeMiddle;
+                break;
+            case Position.Right: previousNode = NodeRight; 
+                break;
+        }
+        MovePlayer();
+    }
+
+    public void MovePlayer()
+    {
         transform.position = Vector3.Lerp(transform.position, currentNode.position, Speed * Time.deltaTime);
     }
 }

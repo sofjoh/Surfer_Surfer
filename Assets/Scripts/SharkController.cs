@@ -8,21 +8,21 @@ public class SharkController : MonoBehaviour
 {
     public float SharkSpeed = 0.1f;
 
-    public GameObject LevelGenerator; 
+    //public GameObject LevelGenerator; 
     public GameObject Player; 
     public GameObject SharkNode;
     private float originalSpeed;
     public bool sharkGo; 
     public bool sharkGoBack;
     private GameObject gameController;
-    public Vector3 startPosition; 
+    //public Vector3 startPosition; 
 
     // Start is called before the first frame update
     void Start()
     {
-        originalSpeed = LevelGenerator.GetComponent<LevelGenerator>().ObstacleSpeed;
+        //originalSpeed = LevelGenerator.GetComponent<LevelGenerator>().ObstacleSpeed;
         gameController = FindObjectOfType<GameOver>().gameObject;
-        startPosition = transform.position; 
+        //startPosition = transform.position; 
     }
 
     // Update is called once per frame
