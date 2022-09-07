@@ -81,6 +81,6 @@ public class CharacterMovement : MonoBehaviour
 
     public void MovePlayer()
     {
-        transform.position = Vector3.Lerp(transform.position, currentNode.position, Speed * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, new Vector3(currentNode.position.x, transform.position.y,currentNode.position.z), Speed * Time.deltaTime);
     }
 }

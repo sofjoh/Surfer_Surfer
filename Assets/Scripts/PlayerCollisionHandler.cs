@@ -1,59 +1,102 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerCollisionHandler : MonoBehaviour
 {
-    [HideInInspector] public float nuvarandeSpeed;
+    [FormerlySerializedAs("nuvarandeSpeed")] [HideInInspector] public float originalSpeed;
     public float collisionSpeed = 0f;
     
     public GameObject LevelGenerator;
     public GameObject Shark;
+
+    public Transform startPoint;
     
-    // Start is called before the first frame update
-    void Start()
+    public Transform ForwardCheck;
+    public Transform RightCheck;
+    public Transform LeftCheck;
+
+    private RaycastHit hit;
+
+    public LayerMask collisionLayers;
+
+    public float checkRadius = 0.25f;
+    public float maxDistance = 1f;
+    
+    private bool ForwardhitToggle;
+    private bool SidehitToggle;
+    
+    private CharacterMovement.Position prevpos;
+    private Transform prevnode;
+
+    
+    private void Start()
     {
-        
+        originalSpeed = LevelGenerator.GetComponent<LevelGenerator>().ObstacleSpeed;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+
     }
     
-    private void OnTriggerEnter(Collider other)
+    private void sharkGoBack()
     {
-        var prevpos = GetComponent<CharacterMovement>().previousPosition;
-        var prevnode = GetComponent<CharacterMovement>().previousNode;
+        Shark.GetComponent<SharkController>().sharkGo = false;
+        Shark.GetComponent<SharkController>().sharkGoBack = true;
+        LevelGenerator.GetComponent<LevelGenerator>().ObstacleSpeed = originalSpeed;
+        ForwardhitToggle = false;
+    }
+    private void ForwardHit()
+    {
+        if (!ForwardhitToggle)
+        {
+            originalSpeed = LevelGenerator.GetComponent<LevelGenerator>().ObstacleSpeed;
+        }
+
+        ForwardhitToggle = true;
+        LevelGenerator.GetComponent<LevelGenerator>().ObstacleSpeed = collisionSpeed;
+        Shark.GetComponent<SharkController>().sharkGo = true;
+        Shark.GetComponent<SharkController>().sharkGoBack = false;
+    }
+
+    private void BounceBack()
+    {
+        prevpos = GetComponent<CharacterMovement>().previousPosition;
+        prevnode = GetComponent<CharacterMovement>().previousNode;
+        
+        originalSpeed = LevelGenerator.GetComponent<LevelGenerator>().ObstacleSpeed;
+        GetComponent<CharacterMovement>().currentPosition = prevpos;
+        GetComponent<CharacterMovement>().currentNode = prevnode;
+        GetComponent<CharacterMovement>().MovePlayer();
+        SidehitToggle = true;
+    }
+
+
+    void OnTriggerEnter(Collider other)
+    {
         if (other.CompareTag("Obstacle Block"))
         {
-            var dir = Vector3.Normalize(transform.position - other.transform.position);
-            var dot = Vector3.Dot(other.transform.forward * -1, new Vector3(0, 0, dir.z));
-            if (dot > 0.707f)
+            float xOffset = Mathf.Abs((transform.position.x - other.transform.position.x));
+
+            if (xOffset > 0.25f)
             {
-                nuvarandeSpeed = LevelGenerator.GetComponent<LevelGenerator>().ObstacleSpeed;
-                LevelGenerator.GetComponent<LevelGenerator>().ObstacleSpeed = collisionSpeed;
-                Shark.GetComponent<SharkController>().sharkGo = true;
-                Shark.GetComponent<SharkController>().sharkGoBack = false;
+                BounceBack();
             }
             else
             {
-                nuvarandeSpeed = LevelGenerator.GetComponent<LevelGenerator>().ObstacleSpeed;
-                GetComponent<CharacterMovement>().currentPosition = prevpos;
-                GetComponent<CharacterMovement>().currentNode = prevnode;
-                GetComponent<CharacterMovement>().MovePlayer();
+                ForwardHit();
             }
         }
     }
-    
+
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Obstacle Block"))
         {
-            Shark.GetComponent<SharkController>().sharkGo = false;
-            Shark.GetComponent<SharkController>().sharkGoBack = true;
-            LevelGenerator.GetComponent<LevelGenerator>().ObstacleSpeed = nuvarandeSpeed;
+            sharkGoBack();
         }
     }
 }
