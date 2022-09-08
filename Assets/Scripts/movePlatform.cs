@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class movePlatform : MonoBehaviour
 {
-    private GameObject levelGenerator;
+    private LevelGenerator levelGenerator;
     public float speed;
     // Start is called before the first frame update
     void Awake()
     {
-        levelGenerator = GameObject.Find("LevelGenerator");
+        levelGenerator = LevelGenerator.lvlGen;
     }
 
     // Update is called once per frame
     void Update()
     {
-        speed = levelGenerator.GetComponent<LevelGenerator>().ObstacleSpeed;
+        speed = levelGenerator.ObstacleSpeed;
         transform.Translate(Vector3.forward * -speed * Time.deltaTime);
         
         if (transform.position.z < -60)
         {
-            levelGenerator.GetComponent<LevelGenerator>().generateTile();
+            levelGenerator.generateTile();
             Destroy(gameObject);
         }
     }

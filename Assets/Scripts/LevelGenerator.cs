@@ -1,7 +1,11 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
+[Serializable]
 public class LevelGenerator : MonoBehaviour
 {
+    public static LevelGenerator lvlGen;
     public GameObject[] LevelParts;
 
     [Tooltip("Should be the same as the level parts length in z")]
@@ -16,13 +20,27 @@ public class LevelGenerator : MonoBehaviour
     [Tooltip("How much do you want to increase the speed?")]
     public float SpeedToAdd = 1f; 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        lvlGen = this;
+    }
+
     void Start()
     {
         numberOfTiles = LevelParts.Length;
         GenerateStartTile();
         GenerateStartLevel();
     }
-
+    private void OnValidate()
+    {
+        if (Offset < 40)
+        {
+            Debug.LogError("Fix value of offset");
+        }
+    }
+/// <summary>
+/// Randomize en levelbit och initierar den längst bak i banan. 
+/// </summary>
     public void generateTile()
     {
         var index = Random.Range(0, numberOfTiles);

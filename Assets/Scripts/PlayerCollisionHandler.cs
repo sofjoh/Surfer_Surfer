@@ -26,10 +26,12 @@ public class PlayerCollisionHandler : MonoBehaviour
     private Transform prevnode;
 
     public GameObject currentHit;
+    private SharkController sharkController;
 
     private void Start()
     {
         originalSpeed = LevelGenerator.GetComponent<LevelGenerator>().ObstacleSpeed;
+        sharkController = Shark.GetComponent<SharkController>();
     }
 
     private void sharkGoBack()
@@ -48,8 +50,8 @@ public class PlayerCollisionHandler : MonoBehaviour
 
         ForwardhitToggle = true;
         LevelGenerator.GetComponent<LevelGenerator>().ObstacleSpeed = collisionSpeed;
-        Shark.GetComponent<SharkController>().sharkGo = true;
-        Shark.GetComponent<SharkController>().sharkGoBack = false;
+        sharkController.sharkGo = true;
+        sharkController.sharkGoBack = false;
     }
 
     private void BounceBack()
