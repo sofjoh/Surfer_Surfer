@@ -64,6 +64,7 @@
      <Compile Include="Assets\Scripts\StartOverGame.cs" />
      <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
      <Compile Include="Assets\Scripts\CoinCollect.cs" />
+     <Compile Include="Assets\GroundCheck.cs" />
      <Compile Include="Assets\Scripts\movePlatform.cs" />
      <Compile Include="Assets\Scripts\SharkController.cs" />
      <Compile Include="Assets\Scripts\PlayerCollisionHandler.cs" />

@@ -13,7 +13,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{46e9a4f2-e012-40de-af30-d26e722a5a94}</ProjectGuid>
+    <ProjectGuid>{06f957d4-d642-566b-1a90-41d2ae7de32a}</ProjectGuid>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -440,10 +440,10 @@
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.0f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="ICSharpCode.NRefactory">
- <HintPath>D:/Users/sofie/Surfer_Surfer_Sofie/Library/PackageCache/com.unity.render-pipelines.core@10.3.2/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
+ <HintPath>D:/Users/sofie/UnityHIS/Surfer_Surfer_spelprogrammering2/Surfer_Surfer/Library/PackageCache/com.unity.render-pipelines.core@10.3.2/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
- <HintPath>D:/Users/sofie/Surfer_Surfer_Sofie/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
+ <HintPath>D:/Users/sofie/UnityHIS/Surfer_Surfer_spelprogrammering2/Surfer_Surfer/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.0f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -793,39 +793,39 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.RenderPipelines.Universal.Runtime.csproj">
-      <Project>{19cd9ac1-3fb8-f689-72f4-32b0ecf0e0a4}</Project>
+      <Project>{99017176-e91f-35b0-5dad-3b7662e42655}</Project>
       <Name>Unity.RenderPipelines.Universal.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Core.Runtime.csproj">
-      <Project>{135c5cf4-ece0-98f4-96ca-fe2fb47a2d0c}</Project>
+      <Project>{38c9252d-6c80-37fa-c93e-c3e8f1934879}</Project>
       <Name>Unity.RenderPipelines.Core.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Core.Editor.csproj">
-      <Project>{21673bc7-deb6-0ee2-5a19-01239ac88272}</Project>
+      <Project>{26b5a1bc-f3b4-b7cd-2ba6-f2c73ecb5110}</Project>
       <Name>Unity.RenderPipelines.Core.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.ShaderGraph.Editor.csproj">
-      <Project>{d75d357d-407a-a258-0a56-b74e63149d50}</Project>
+      <Project>{e5d2a186-986e-4ffa-5505-a5b33caec26e}</Project>
       <Name>Unity.ShaderGraph.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Mathematics.Editor.csproj">
-      <Project>{47693859-f70a-db03-85e3-685414a015d0}</Project>
+      <Project>{59c74c2a-ba4a-631c-2fc1-7d713b01fcab}</Project>
       <Name>Unity.Mathematics.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{3d718248-774e-3ce0-ca62-ca8ff561161e}</Project>
+      <Project>{a8b16bbb-3454-54b3-a1eb-e46c425dda68}</Project>
       <Name>UnityEditor.UI</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{ea6e07cc-6561-7ccd-ac22-84069e35ec80}</Project>
+      <Project>{88765371-d2ef-633b-e57a-6d86c72858e2}</Project>
       <Name>UnityEngine.UI</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.TestRunner.csproj">
-      <Project>{751c65c8-0bc5-9970-00aa-bd418730235d}</Project>
+      <Project>{52591b28-c710-16cb-4dff-e06b0537b0c9}</Project>
       <Name>UnityEngine.TestRunner</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.TestRunner.csproj">
-      <Project>{b8ffa464-4f37-ede8-579e-24dcb4715808}</Project>
+      <Project>{c93eb121-e4d5-f7e2-9c2b-9637042f29e8}</Project>
       <Name>UnityEditor.TestRunner</Name>
     </ProjectReference>
   </ItemGroup>
