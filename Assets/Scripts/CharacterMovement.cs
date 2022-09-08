@@ -4,6 +4,8 @@ using UnityEngine;
 public class CharacterMovement : MonoBehaviour
 {
 
+    public Animator anim;
+
     public float Speed = 10f; 
     
     public Transform NodeLeft; 
@@ -37,8 +39,12 @@ public class CharacterMovement : MonoBehaviour
 
     public void getKeyInput()
     {
+        anim.SetInteger("Move Direction", 0);
+
         if (Input.GetKeyDown(KeyCode.A))
         {
+            anim.SetInteger("Move Direction", -1);
+
             previousPosition = currentPosition;
             currentPosition -= 1;
             if (Convert.ToInt32(currentPosition) < 0)
@@ -49,6 +55,8 @@ public class CharacterMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.D))
         {
+            anim.SetInteger("Move Direction", 1);
+
             previousPosition = currentPosition;
             currentPosition += 1; 
             if (Convert.ToInt32(currentPosition) > 2)

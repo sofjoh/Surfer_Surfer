@@ -12,18 +12,12 @@ public class PlayerCollisionHandler : MonoBehaviour
     public GameObject LevelGenerator;
     public GameObject Shark;
 
-    //public Transform startPoint;
-    
-    //public Transform ForwardCheck;
-    //public Transform RightCheck;
-    //public Transform LeftCheck;
-
     private RaycastHit hit;
 
     //public LayerMask collisionLayers;
 
-    public float checkRadius = 0.25f;
-    public float maxDistance = 1f;
+    //public float checkRadius = 0.25f;
+    //public float maxDistance = 1f;
     
     private bool ForwardhitToggle;
     private bool SidehitToggle;
@@ -31,13 +25,13 @@ public class PlayerCollisionHandler : MonoBehaviour
     private CharacterMovement.Position prevpos;
     private Transform prevnode;
 
-    
+    public GameObject currentHit;
+
     private void Start()
     {
         originalSpeed = LevelGenerator.GetComponent<LevelGenerator>().ObstacleSpeed;
     }
 
-    
     private void sharkGoBack()
     {
         Shark.GetComponent<SharkController>().sharkGo = false;
@@ -73,20 +67,24 @@ public class PlayerCollisionHandler : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Obstacle Block"))
-        {
-            float xOffset = Mathf.Abs((transform.position.x - other.transform.position.x));
-            Debug.Log("hit");
+        if (!currentHit || currentHit != other.gameObject){
+            if (other.CompareTag("Obstacle Block"))
+            {
+                float xOffset = Mathf.Abs((transform.position.x - other.transform.position.x));
 
-            if (xOffset > 1f)
-            {
-                BounceBack();
-            }
-            else
-            {
-                ForwardHit();
+                if (xOffset > 1.5f)
+                {
+                    BounceBack();
+                }
+                else
+                {
+                    ForwardHit();
+                }
+
+                currentHit = other.gameObject;
             }
         }
+
     }
 
     private void OnTriggerExit(Collider other)
@@ -94,6 +92,9 @@ public class PlayerCollisionHandler : MonoBehaviour
         if (other.CompareTag("Obstacle Block"))
         {
             sharkGoBack();
+
         }
+
+
     }
 }
