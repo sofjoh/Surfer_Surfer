@@ -12,18 +12,12 @@ public class PlayerCollisionHandler : MonoBehaviour
     public GameObject LevelGenerator;
     public GameObject Shark;
 
-    public Transform startPoint;
-    
-    public Transform ForwardCheck;
-    public Transform RightCheck;
-    public Transform LeftCheck;
-
     private RaycastHit hit;
 
-    public LayerMask collisionLayers;
+    //public LayerMask collisionLayers;
 
-    public float checkRadius = 0.25f;
-    public float maxDistance = 1f;
+    //public float checkRadius = 0.25f;
+    //public float maxDistance = 1f;
     
     private bool ForwardhitToggle;
     private bool SidehitToggle;
@@ -37,11 +31,6 @@ public class PlayerCollisionHandler : MonoBehaviour
         originalSpeed = LevelGenerator.GetComponent<LevelGenerator>().ObstacleSpeed;
     }
 
-    private void Update()
-    {
-
-    }
-    
     private void sharkGoBack()
     {
         Shark.GetComponent<SharkController>().sharkGo = false;
