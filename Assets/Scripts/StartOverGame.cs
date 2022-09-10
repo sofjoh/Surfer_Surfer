@@ -6,17 +6,8 @@ using UnityEngine.UI;
 
 public class StartOverGame : MonoBehaviour
 {
-    public Button PlayAgain;
-
-    //distance in stats-script
-    //coins collectedCoins in stats-script
-    
-    //set back speed of level
-    //set back the shark
-    //delete the level parts
-    //regenerate level
-    //deactivate game over screen
-    //activate In game screen
+    [Tooltip("Button for play again")]
+    public Button PlayAgainButton;
 
     public void restartGame()
     {

@@ -6,26 +6,24 @@ using UnityEngine.Animations;
 
 public class SharkController : MonoBehaviour
 {
+    [Tooltip("Speed of shark when activated.")]
     public float SharkSpeed = 0.1f;
-
-    //public GameObject LevelGenerator; 
-    public GameObject Player; 
-    public GameObject SharkNode;
+    [Tooltip("Player GameObject")]
+    public GameObject Player;
+    [Tooltip("The node for where the player should start")]
+    public Transform SharkNode;
     private float originalSpeed;
-    public bool sharkGo; 
-    public bool sharkGoBack;
+    [HideInInspector] public bool sharkGo; 
+    [HideInInspector] public bool sharkGoBack;
     private GameObject gameController;
-    //public Vector3 startPosition; 
+    private GameOver gameOver;
 
-    // Start is called before the first frame update
     void Start()
     {
-        //originalSpeed = LevelGenerator.GetComponent<LevelGenerator>().ObstacleSpeed;
         gameController = FindObjectOfType<GameOver>().gameObject;
-        //startPosition = transform.position; 
+        gameOver = gameController.GetComponent<GameOver>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (sharkGo)
@@ -43,20 +41,25 @@ public class SharkController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            gameController.GetComponent<GameOver>().Dead = true;
+            gameOver.Dead = true;
         }
     }
-
 
     public void StartTheShark()
     {
         transform.position = Vector3.Lerp(transform.position, Player.transform.position, SharkSpeed * Time.deltaTime);
-        //transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, SharkSpeed * Time.deltaTime);
     }    
     
     public void StopTheShark()
     {
-        transform.position = Vector3.Lerp(transform.position, SharkNode.transform.position, SharkSpeed * Time.deltaTime);
-        //transform.position = Vector3.MoveTowards(transform.position, SharkNode.transform.position, SharkSpeed * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, SharkNode.position, SharkSpeed * Time.deltaTime);
+    }
+
+    private void OnValidate()
+    {
+        if (SharkSpeed <= 0)
+        {
+            Debug.LogWarning("shark speed should be a positive value");
+        }
     }
 }

@@ -1,27 +1,34 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class GroundCheck : MonoBehaviour
 {
 
     public Animator animator;
 
-    public bool onWater;
+    [HideInInspector]public bool onWater;
 
     public float lerpSpeed = 10f;
     
-    public float fallSpeed;
+    [HideInInspector] public float fallSpeed;
     
+    [Tooltip("The highest fall speed player can reach")]
     public float maxFall;
+    [Tooltip("Player weight. Affects the player's fall speed")]
     public float weight;
+    //ett tooltip här eller dölj den
     public float offset;
     public LayerMask groundLayer;
-    public float JumpaForce = 3.25f;
+    [Tooltip("Force upward for player jump. Should always be negative.")]
+    [FormerlySerializedAs("JumpaForce")] public float JumpForce = -20f;
 
-    public bool isGrounded;
-
+    [Header("Linecast objects")]
+    [Tooltip("Start of linecast for player ground check")]
     public Transform startCheck;
+    [Tooltip("End of linecast for player ground check")]
     public Transform endCheck;
 
     private RaycastHit hit;
@@ -32,6 +39,7 @@ public class GroundCheck : MonoBehaviour
         if(Physics.Linecast(startCheck.position, endCheck.position, out hit, groundLayer) && fallSpeed >= 0f)
         {
             fallSpeed = 0f;
+            //vad är offset
             transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, hit.point.y + offset, transform.position.z), lerpSpeed * Time.deltaTime);
             onWater = true;
 
@@ -60,5 +68,22 @@ public class GroundCheck : MonoBehaviour
 
         animator.SetBool("On Water", onWater);
 
+    }
+
+    private void OnValidate()
+    {
+        if (JumpForce >= 0)
+        {
+            Debug.LogWarning("JumpForce in GroundCheck (script) should be a negative value");
+        }
+
+        if (maxFall <= 0)
+        {
+            Debug.LogWarning("maxFall in GroundCheck (script) should be a positive value");
+        }
+        if (weight <= 0)
+        {
+            Debug.LogWarning("weight in GroundCheck (script) should be a positive value");
+        }
     }
 }

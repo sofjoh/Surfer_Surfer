@@ -7,25 +7,20 @@ using UnityEngine.Serialization;
 public class PlayerCollisionHandler : MonoBehaviour
 {
     [FormerlySerializedAs("nuvarandeSpeed")] [HideInInspector] public float originalSpeed;
-    public float collisionSpeed = 0f;
+    [HideInInspector]public float collisionSpeed = 0f;
     
     public GameObject LevelGenerator;
     public GameObject Shark;
 
-    private RaycastHit hit;
+    //private RaycastHit hit;
 
-    //public LayerMask collisionLayers;
-
-    //public float checkRadius = 0.25f;
-    //public float maxDistance = 1f;
-    
     private bool ForwardhitToggle;
     private bool SidehitToggle;
     
     private CharacterMovement.Position prevpos;
     private Transform prevnode;
 
-    public GameObject currentHit;
+    private GameObject currentHit;
     private SharkController sharkController;
 
     private void Start()
@@ -36,8 +31,8 @@ public class PlayerCollisionHandler : MonoBehaviour
 
     private void sharkGoBack()
     {
-        Shark.GetComponent<SharkController>().sharkGo = false;
-        Shark.GetComponent<SharkController>().sharkGoBack = true;
+        sharkController.sharkGo = false;
+        sharkController.sharkGoBack = true;
         LevelGenerator.GetComponent<LevelGenerator>().ObstacleSpeed = originalSpeed;
         ForwardhitToggle = false;
     }
@@ -96,7 +91,5 @@ public class PlayerCollisionHandler : MonoBehaviour
             sharkGoBack();
 
         }
-
-
     }
 }

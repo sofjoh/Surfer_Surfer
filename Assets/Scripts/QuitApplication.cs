@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class QuitApplication : MonoBehaviour
 {
-    public Button Quit;
+    [Tooltip("button for quit game")]
+    public Button QuitButton;
     public void QuitGame()
     {
         Application.Quit();

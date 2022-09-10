@@ -5,15 +5,17 @@ using UnityEngine;
 
 public class GameOver : MonoBehaviour
 {
-    public bool Dead;
-
-    public GameObject InGameScreen;
-
-    public GameObject GameOverScreen;
+    [HideInInspector] public bool Dead;
     
+    [Tooltip("Game object with the in Game UI")]
+    public GameObject InGameScreen;
+    [Tooltip("Game object with game over UI")]
+    public GameObject GameOverScreen;
+    [Tooltip("The text for resulting distance (game over canvas)")]
     public TextMeshProUGUI ResultDistance;
+    [Tooltip("The text for resulting coin count (game over canvas)")]
     public TextMeshProUGUI ResultCoins;
-    public TextMeshProUGUI Highscore;
+   // public TextMeshProUGUI Highscore;
 
     // Update is called once per frame
     void Update()

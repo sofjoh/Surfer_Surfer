@@ -6,22 +6,23 @@ using UnityEngine;
 
 public class Stats : MonoBehaviour
 {
-    public int collectedCoins;
+    [HideInInspector] public int collectedCoins;
     
-    public bool moving;
+    //public bool moving;
 
-    private float originalSpeed;
-    public float distance;
+    //private float originalSpeed;
+    [HideInInspector] public float distance;
 
-    public GameObject levelGenerator;
+    //public GameObject levelGenerator;
+    [Tooltip("Text for coin count")]
     public TextMeshProUGUI CoinsText;
+    [Tooltip("Text for distance count")]
     public TextMeshProUGUI distanceText; 
-    public TextMeshProUGUI CountDownText;
-    private bool countdown;
-    public GameObject countDown;
-    private bool countDownToggle = true;
+    //public TextMeshProUGUI CountDownText;
+    //private bool countdown;
+    //public GameObject countDown;
 
-    public float CountDownTimer = 5;
+    //public float CountDownTimer = 5;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -34,7 +35,7 @@ public class Stats : MonoBehaviour
         //levelGenerator.GetComponent<LevelGenerator>().ObstacleSpeed = 0;
         //moving = false;
         distance = 0;
-        countdown = true;
+       // countdown = true;
     }
 
     // Update is called once per frame
@@ -48,7 +49,7 @@ public class Stats : MonoBehaviour
 
         if (CountDownTimer < 0)
         {
-            if (countDownToggle)
+            if (countDown)
             {
                 levelGenerator.GetComponent<LevelGenerator>().ObstacleSpeed = originalSpeed;
                 countdown = false;

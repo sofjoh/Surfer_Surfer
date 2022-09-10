@@ -10,14 +10,17 @@ public class LevelGenerator : MonoBehaviour
 
     [Tooltip("Should be the same as the level parts length in z")]
     public float Offset = 40f; 
-    private Transform spawningPosition;
+    //private Transform spawningPosition;
+    
+    [Tooltip("The first tile in the level.")]
     public Transform StartTile;
     private int numberOfTiles;
 
+    [Tooltip("The start speed of the level.")]
     public float ObstacleSpeed = 20f;
     [Tooltip("How many seconds should pass before the obstacles move faster?")]
     public float TimerForSpeedingUp = 20f;
-    [Tooltip("How much do you want to increase the speed?")]
+    [Tooltip("How much do you want to increase the speed each time the timer hits 0?")]
     public float SpeedToAdd = 1f; 
     // Start is called before the first frame update
     private void Awake()
@@ -33,9 +36,19 @@ public class LevelGenerator : MonoBehaviour
     }
     private void OnValidate()
     {
-        if (Offset < 40)
+        if (Offset < 0)
         {
-            Debug.LogError("Fix value of offset");
+            Debug.LogError("Value of offset is negative. It should be a positive value and the same as the level parts length in z.");
+        }
+
+        if (ObstacleSpeed <= 0)
+        {
+            Debug.LogWarning("Obstacle speed should be a positive value");
+        }
+        
+        if (TimerForSpeedingUp <= 0)
+        {
+            Debug.LogWarning("Timer for speeding up should be a positive value");
         }
     }
 /// <summary>

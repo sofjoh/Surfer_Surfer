@@ -5,9 +5,12 @@ public class CharacterMovement : MonoBehaviour
 {
 
     public Animator anim;
-
+    
+    [Tooltip("Speed for player moving right and left")]
     public float Speed = 10f; 
     
+    [Tooltip("Place each node at the preferred location in the scene. Assign respective gameobject here.")]
+    [Header("Nodes for player position")]
     public Transform NodeLeft; 
     public Transform NodeMiddle; 
     public Transform NodeRight;
@@ -40,6 +43,10 @@ public class CharacterMovement : MonoBehaviour
     public void getKeyInput()
     {
         anim.SetInteger("Move Direction", 0);
+
+
+
+        anim.SetBool("Crouch", Input.GetKey(KeyCode.LeftControl));
 
         if (Input.GetKeyDown(KeyCode.A))
         {
@@ -90,5 +97,13 @@ public class CharacterMovement : MonoBehaviour
     public void MovePlayer()
     {
         transform.position = Vector3.Lerp(transform.position, new Vector3(currentNode.position.x, transform.position.y,currentNode.position.z), Speed * Time.deltaTime);
+    }
+
+    private void OnValidate()
+    {
+        if (!(Speed > 0))
+        {
+            Debug.LogWarning("Speed in Character movement should be a value higher than 0");
+        }
     }
 }

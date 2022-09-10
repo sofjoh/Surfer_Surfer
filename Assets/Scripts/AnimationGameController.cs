@@ -5,6 +5,7 @@ using UnityEngine;
 public class AnimationGameController : MonoBehaviour
 {
 
+    [Tooltip("Wants a GameObject with the GroundCheck script. Most likely the Player object.")]
     public GroundCheck gCheck;
 
     void Update()
@@ -14,7 +15,7 @@ public class AnimationGameController : MonoBehaviour
 
     void Jump()
     {
-        gCheck.fallSpeed = gCheck.JumpaForce;
+        gCheck.fallSpeed = gCheck.JumpForce;
         GetComponent<Animator>().SetBool("Jump", false);
     }
 
