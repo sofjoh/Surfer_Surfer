@@ -16,12 +16,12 @@ public class SharkController : MonoBehaviour
     [HideInInspector] public bool sharkGo; 
     [HideInInspector] public bool sharkGoBack;
     private GameObject gameController;
-    private GameOver gameOver;
+    private SceneHandler sceneHandler;
 
     void Start()
     {
-        gameController = FindObjectOfType<GameOver>().gameObject;
-        gameOver = gameController.GetComponent<GameOver>();
+        gameController = FindObjectOfType<SceneHandler>().gameObject;
+        sceneHandler = gameController.GetComponent<SceneHandler>();
     }
 
     void Update()
@@ -41,7 +41,7 @@ public class SharkController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            gameOver.Dead = true;
+            sceneHandler.Dead = true;
         }
     }
 
@@ -61,5 +61,11 @@ public class SharkController : MonoBehaviour
         {
             Debug.LogWarning("shark speed should be a positive value");
         }
+    }
+
+    public void SetSharkTOrigin()
+    {
+        transform.position = SharkNode.position;
+        sharkGo = false;
     }
 }

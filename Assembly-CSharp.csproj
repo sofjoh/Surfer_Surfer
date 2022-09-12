@@ -54,10 +54,12 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\PlayButtonManager.cs" />
      <Compile Include="Assets\Scripts\CharacterMovement.cs" />
+     <Compile Include="Assets\Scripts\LoadGame.cs" />
      <Compile Include="Assets\Scripts\Stats.cs" />
      <Compile Include="Assets\Scripts\LevelGenerator.cs" />
      <Compile Include="Assets\Scripts\Distance.cs" />
      <Compile Include="Assets\Scripts\GameOver.cs" />
+     <Compile Include="Assets\Scripts\SceneHandler.cs" />
      <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
      <Compile Include="Assets\Scripts\QuitApplication.cs" />
      <Compile Include="Assets\Scripts\AnimationGameController.cs" />
@@ -71,6 +73,7 @@
      <Compile Include="Assets\Scripts\SharkController.cs" />
      <Compile Include="Assets\Scripts\PlayerCollisionHandler.cs" />
      <Compile Include="Assets\Scripts\DrawGizmo.cs" />
+     <Compile Include="Assets\Scripts\Countdown.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

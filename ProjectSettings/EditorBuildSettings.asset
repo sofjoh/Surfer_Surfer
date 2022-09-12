@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/StartScene.unity
+    guid: 82d44413e52e27e4fab8169042b8b217
+  - enabled: 1
     path: Assets/Scenes/Surfer Surfer.unity
     guid: 0077463f16f0d0040b3d55050c5adf0c
   - enabled: 0
