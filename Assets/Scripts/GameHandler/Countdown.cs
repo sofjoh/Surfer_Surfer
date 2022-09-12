@@ -12,7 +12,7 @@ public class Countdown : MonoBehaviour
     private LevelGenerator lvlGen;
     [Tooltip("Value for countdown timer before game starts.")]
     public float Timer = 5;
-    private bool countdown = true;
+    public bool countdown = true;
     private float speed;
     public TextMeshProUGUI countdownText;
     private bool scriptActive;
@@ -58,9 +58,6 @@ public class Countdown : MonoBehaviour
         scriptActive = false;
         lvlGen.ObstacleSpeed = speed;
         countdownText.gameObject.SetActive(false);
-        
-        //distance count
     }
-    
-    //det här scriptet är fortfarande aktivt vilket betyder att obstacle speed blir kvar på 20. 
+
 }

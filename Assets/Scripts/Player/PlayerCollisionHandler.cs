@@ -14,7 +14,7 @@ public class PlayerCollisionHandler : MonoBehaviour
 
     //private RaycastHit hit;
 
-    private bool ForwardhitToggle;
+    public bool ForwardhitToggle;
     private bool SidehitToggle;
     
     private CharacterMovement.Position prevpos;
@@ -31,6 +31,7 @@ public class PlayerCollisionHandler : MonoBehaviour
 
     private void sharkGoBack()
     {
+        //om inte död 
         sharkController.sharkGo = false;
         sharkController.sharkGoBack = true;
         LevelGenerator.GetComponent<LevelGenerator>().ObstacleSpeed = originalSpeed;

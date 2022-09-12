@@ -23,12 +23,18 @@ public class SceneHandler : MonoBehaviour
 
     public bool deleteAllTiles;
 
+    private void Start()
+    {
+        lvlgen = LevelGenerator.lvlGen;
+    }
+
     // Update is called once per frame
     void Update()
     {
 
         if (Dead)
         {
+            lvlgen.ObstacleSpeed = 0;
             GameIsOver();
         }
         

@@ -21,7 +21,9 @@ public class LevelGenerator : MonoBehaviour
     [Tooltip("How many seconds should pass before the obstacles move faster?")]
     public float TimerForSpeedingUp = 20f;
     [Tooltip("How much do you want to increase the speed each time the timer hits 0?")]
-    public float SpeedToAdd = 1f; 
+    public float SpeedToAdd = 1f;
+    [Tooltip("Highest speed the level can reach.")]
+    public float HighestSpeed = 50;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -51,6 +53,7 @@ public class LevelGenerator : MonoBehaviour
             Debug.LogWarning("Timer for speeding up should be a positive value");
         }
     }
+    
 /// <summary>
 /// Randomize en levelbit och initierar den längst bak i banan. 
 /// </summary>

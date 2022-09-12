@@ -41,6 +41,7 @@ public class SharkController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("dead");
             sceneHandler.Dead = true;
         }
     }
