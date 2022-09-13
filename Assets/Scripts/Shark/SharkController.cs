@@ -9,6 +9,7 @@ public class SharkController : MonoBehaviour
 {
     [FormerlySerializedAs("SharkSpeed")] [Tooltip("Speed of shark when activated.")]
     public float SharkSpeedForward = 0.1f;
+    [Tooltip("Speed of shark going back")]
     public float SharkSpeedBack = 1f;
     [Tooltip("Player GameObject")]
     public GameObject Player;
@@ -62,6 +63,11 @@ public class SharkController : MonoBehaviour
         if (SharkSpeedForward <= 0)
         {
             Debug.LogWarning("shark speed should be a positive value");
+        }
+        
+        if (SharkSpeedBack<= 0)
+        {
+            Debug.LogWarning("shark speed back should be a positive value");
         }
     }
 

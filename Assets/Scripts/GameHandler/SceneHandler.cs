@@ -19,6 +19,8 @@ public class SceneHandler : MonoBehaviour
     public TextMeshProUGUI ResultDistance;
     [Tooltip("The text for resulting coin count (game over canvas)")]
     public TextMeshProUGUI ResultCoins;
+    public TextMeshProUGUI HighscoreDistance;
+    public TextMeshProUGUI HighscoreCoins;
     private LevelGenerator lvlgen;
 
     public bool deleteAllTiles;
@@ -50,6 +52,12 @@ public class SceneHandler : MonoBehaviour
 
         var resultDistance = GetComponent<Stats>().distance;
         ResultDistance.text = "Distance: " + resultDistance.ToString("0");
+
+        var highscoreCoins = GetComponent<Stats>().HighscoreCoins;
+        HighscoreCoins.text = "Highscore Coins: " + highscoreCoins.ToString("0");
+        
+        var highscoreDistance = GetComponent<Stats>().HighscoreDistance;
+        HighscoreDistance.text = "Highscore Distance: " + highscoreDistance.ToString("0");
 
         //kanske coorutine här för att visa dead-animation först. Eller sätta en pausgame true när animationen har körts. 
         Time.timeScale = 1; 

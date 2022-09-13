@@ -10,8 +10,8 @@ public class Stats : MonoBehaviour
    
     [HideInInspector] public float distance;
 
-    [HideInInspector] public float HighscoreDistance;
-    [HideInInspector] public int HighscoreCoins;
+     public float HighscoreDistance;
+     public int HighscoreCoins;
 
     [Tooltip("Text for coin count")]
     public TextMeshProUGUI CoinsText;
@@ -21,17 +21,14 @@ public class Stats : MonoBehaviour
     public GameObject GameHandler;
     private SceneHandler sceneHandl;
 
-    private void Awake()
-    {
-        
-    }
-
     private void Start()
     {
         collectedCoins = 0; 
         distance = 0;
         sceneHandl = GameHandler.GetComponent<SceneHandler>();
         CoinsText.text = collectedCoins.ToString("0") + " : Coins";
+        HighscoreDistance = PlayerPrefs.GetFloat("HighscoreDistance");
+        HighscoreCoins = PlayerPrefs.GetInt("HighscoreCoins");
     }
 
     // Update is called once per frame
@@ -41,7 +38,7 @@ public class Stats : MonoBehaviour
         {
             distance += Time.deltaTime;
 
-            if (distance > HighscoreDistance)
+            if (distance > PlayerPrefs.GetFloat("HighscoreDistance"))
             {
                 HighscoreDistance = distance;
                 PlayerPrefs.SetFloat("HighscoreDistance", HighscoreDistance);
@@ -56,7 +53,7 @@ public class Stats : MonoBehaviour
         collectedCoins++;
         CoinsText.text = collectedCoins.ToString("0") + " : Coins";
 
-        if (collectedCoins < HighscoreCoins)
+        if (collectedCoins > PlayerPrefs.GetInt("HighscoreCoins"))
         {
             HighscoreCoins = collectedCoins;
             PlayerPrefs.SetInt("HighscoreCoins", HighscoreCoins);
