@@ -19,7 +19,7 @@ public class GroundCheck : MonoBehaviour
     public float maxFall;
     [Tooltip("Player weight. Affects the player's fall speed")]
     public float weight;
-    //ett tooltip här eller dölj den
+    [Tooltip("Player offset from water i y")]
     public float offset;
     public LayerMask groundLayer;
     [Tooltip("Force upward for player jump. Should always be negative.")]
@@ -35,14 +35,14 @@ public class GroundCheck : MonoBehaviour
     
     void Update()
     {
-        
+        //drar en check-linje mellan spelarens startcheck och endcheck (midjan och brädan)
         if(Physics.Linecast(startCheck.position, endCheck.position, out hit, groundLayer) && fallSpeed >= 0f)
         {
             fallSpeed = 0f;
-            //vad är offset
+            //lerpar spelaren till hit-point i y-led (vattnets yta). Om spelaren skulle åka förbi hitpoint så blir det snyggt att den lerpar tillbaka. 
             transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, hit.point.y + offset, transform.position.z), lerpSpeed * Time.deltaTime);
             onWater = true;
-
+            
             if (hit.transform.gameObject.tag == "Obstacle Block")
             {
                 animator.SetBool("Hard Surface", true);

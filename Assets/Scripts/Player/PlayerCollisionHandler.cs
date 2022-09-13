@@ -26,11 +26,17 @@ public class PlayerCollisionHandler : MonoBehaviour
     public GameObject gameHandler;
     private SceneHandler SceneHandler;
 
+    private CameraShake screenShake;
+
     private void Start()
     {
         originalSpeed = LevelGenerator.GetComponent<LevelGenerator>().ObstacleSpeed;
         sharkController = Shark.GetComponent<SharkController>();
         SceneHandler = gameHandler.GetComponent<SceneHandler>();
+        if (Camera.main != null)
+        {
+            screenShake = Camera.main.GetComponent<CameraShake>();
+        }
     }
 
     private void sharkGoBack()
@@ -46,6 +52,7 @@ public class PlayerCollisionHandler : MonoBehaviour
         if (!ForwardhitToggle)
         {
             originalSpeed = LevelGenerator.GetComponent<LevelGenerator>().ObstacleSpeed;
+            screenShake.screenShake(20, 0.1f);
         }
 
         ForwardhitToggle = true;
@@ -56,6 +63,7 @@ public class PlayerCollisionHandler : MonoBehaviour
 
     private void BounceBack()
     {
+        screenShake.screenShake(10, 0.1f);
         prevpos = GetComponent<CharacterMovement>().previousPosition;
         prevnode = GetComponent<CharacterMovement>().previousNode;
         
@@ -68,9 +76,10 @@ public class PlayerCollisionHandler : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("front bump"))
+        if (other.CompareTag("front bump") && (!currentHit || other.gameObject != currentHit))
         {
             ForwardHit();
+            currentHit = other.gameObject;
         }
 
         if (other.CompareTag("side bump"))
