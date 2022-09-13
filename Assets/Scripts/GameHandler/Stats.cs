@@ -10,6 +10,9 @@ public class Stats : MonoBehaviour
    
     [HideInInspector] public float distance;
 
+    [HideInInspector] public float HighscoreDistance;
+    [HideInInspector] public int HighscoreCoins;
+
     [Tooltip("Text for coin count")]
     public TextMeshProUGUI CoinsText;
     [Tooltip("Text for distance count")]
@@ -37,6 +40,13 @@ public class Stats : MonoBehaviour
         if (!sceneHandl.Dead && !GameHandler.GetComponent<Countdown>().countdown)
         {
             distance += Time.deltaTime;
+
+            if (distance > HighscoreDistance)
+            {
+                HighscoreDistance = distance;
+                PlayerPrefs.SetFloat("HighscoreDistance", HighscoreDistance);
+                PlayerPrefs.Save();
+            }
         }
         distanceText.text = distance.ToString("0") + " : Distance";
     }
@@ -45,6 +55,13 @@ public class Stats : MonoBehaviour
     {
         collectedCoins++;
         CoinsText.text = collectedCoins.ToString("0") + " : Coins";
+
+        if (collectedCoins < HighscoreCoins)
+        {
+            HighscoreCoins = collectedCoins;
+            PlayerPrefs.SetInt("HighscoreCoins", HighscoreCoins);
+            PlayerPrefs.Save();
+        }
     }
     
 }

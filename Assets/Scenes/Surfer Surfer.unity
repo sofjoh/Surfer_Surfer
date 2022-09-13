@@ -20795,6 +20795,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 1527391930}
   Speed: 5
+  laneSwitchTimer: 0
   NodeLeft: {fileID: 156957617}
   NodeMiddle: {fileID: 1160868335}
   NodeRight: {fileID: 612459650}
@@ -20835,6 +20836,7 @@ MonoBehaviour:
   LevelGenerator: {fileID: 757965049}
   Shark: {fileID: 2043726188}
   ForwardhitToggle: 0
+  gameHandler: {fileID: 424082123}
 --- !u!114 &800091143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34033,7 +34035,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d2a2e70e31459d46b65056cee203247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SharkSpeed: 1.5
+  SharkSpeedForward: 15
+  SharkSpeedBack: 1
   Player: {fileID: 800091137}
   SharkNode: {fileID: 1563965750}
   sharkGo: 0

@@ -9,14 +9,14 @@ public class PlayButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerEx
 {
     
     public Animator animator;
-    public GameObject StartScreenCanvas;
+    //public GameObject StartScreenCanvas;
 
 
     public bool hovering;
 
     private void Awake()
     {
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
     }
 
     private void Update()
@@ -26,7 +26,7 @@ public class PlayButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-
+Debug.Log("hover");
         hovering = true;
     }
 
@@ -37,7 +37,7 @@ public class PlayButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
     public void OnClickPlay()
     {
-        Time.timeScale = 1;
-        StartScreenCanvas.SetActive(false);
+        //Time.timeScale = 1;
+        //StartScreenCanvas.SetActive(false);
     }
 }

@@ -7,6 +7,7 @@ TagManager:
   - Obstacle Block
   - front bump
   - side bump
+  - death bump
   layers:
   - Default
   - TransparentFX

@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.Serialization;
 
 public class SharkController : MonoBehaviour
 {
-    [Tooltip("Speed of shark when activated.")]
-    public float SharkSpeed = 0.1f;
+    [FormerlySerializedAs("SharkSpeed")] [Tooltip("Speed of shark when activated.")]
+    public float SharkSpeedForward = 0.1f;
+    public float SharkSpeedBack = 1f;
     [Tooltip("Player GameObject")]
     public GameObject Player;
     [Tooltip("The node for where the player should start")]
@@ -34,31 +36,30 @@ public class SharkController : MonoBehaviour
         {
             StopTheShark();
         }
-        
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("dead");
             sceneHandler.Dead = true;
         }
     }
 
     public void StartTheShark()
     {
-        transform.position = Vector3.Lerp(transform.position, Player.transform.position, SharkSpeed * Time.deltaTime);
+        transform.position=Vector3.MoveTowards(transform.position, Player.transform.position, SharkSpeedForward * Time.deltaTime);
+        //transform.position = Vector3.Lerp(transform.position, Player.transform.position, SharkSpeedForward * Time.deltaTime);
     }    
     
     public void StopTheShark()
     {
-        transform.position = Vector3.Lerp(transform.position, SharkNode.position, SharkSpeed * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, SharkNode.position, SharkSpeedBack * Time.deltaTime);
     }
 
     private void OnValidate()
     {
-        if (SharkSpeed <= 0)
+        if (SharkSpeedForward <= 0)
         {
             Debug.LogWarning("shark speed should be a positive value");
         }

@@ -23,10 +23,14 @@ public class PlayerCollisionHandler : MonoBehaviour
     private GameObject currentHit;
     private SharkController sharkController;
 
+    public GameObject gameHandler;
+    private SceneHandler SceneHandler;
+
     private void Start()
     {
         originalSpeed = LevelGenerator.GetComponent<LevelGenerator>().ObstacleSpeed;
         sharkController = Shark.GetComponent<SharkController>();
+        SceneHandler = gameHandler.GetComponent<SceneHandler>();
     }
 
     private void sharkGoBack()
@@ -72,6 +76,11 @@ public class PlayerCollisionHandler : MonoBehaviour
         if (other.CompareTag("side bump"))
         {
             BounceBack();
+        }
+
+        if (other.CompareTag("death bump"))
+        {
+            SceneHandler.Dead = true;
         }
     }
 
