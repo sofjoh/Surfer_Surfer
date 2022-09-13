@@ -55,7 +55,6 @@ public class PlayerCollisionHandler : MonoBehaviour
         prevpos = GetComponent<CharacterMovement>().previousPosition;
         prevnode = GetComponent<CharacterMovement>().previousNode;
         
-        originalSpeed = LevelGenerator.GetComponent<LevelGenerator>().ObstacleSpeed;
         GetComponent<CharacterMovement>().currentPosition = prevpos;
         GetComponent<CharacterMovement>().currentNode = prevnode;
         GetComponent<CharacterMovement>().MovePlayer();
@@ -65,32 +64,22 @@ public class PlayerCollisionHandler : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (!currentHit || currentHit != other.gameObject){
-            if (other.CompareTag("Obstacle Block"))
-            {
-                float xOffset = Mathf.Abs((transform.position.x - other.transform.position.x));
-
-                if (xOffset > 1.5f)
-                {
-                    BounceBack();
-                }
-                else
-                {
-                    ForwardHit();
-                }
-
-                currentHit = other.gameObject;
-            }
+        if (other.CompareTag("front bump"))
+        {
+            ForwardHit();
         }
 
+        if (other.CompareTag("side bump"))
+        {
+            BounceBack();
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Obstacle Block"))
+        if (other.CompareTag("Obstacle Block") || other.CompareTag("front bump"))
         {
             sharkGoBack();
-
         }
     }
 }

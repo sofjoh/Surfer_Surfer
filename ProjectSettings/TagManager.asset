@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Obstacle Block
+  - front bump
+  - side bump
   layers:
   - Default
   - TransparentFX

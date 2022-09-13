@@ -12,8 +12,6 @@ public class Obstacle1 : MonoBehaviour
 
     private void Awake()
     {
-        GetComponent<Collider>().isTrigger = true;
-        gameObject.tag = "Obstacle Block"; 
         //levelGenerator = FindObjectOfType<LevelGenerator>().gameObject;
         //Shark = FindObjectOfType<SharkController>().gameObject;
     }

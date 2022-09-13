@@ -7,7 +7,10 @@ public class CharacterMovement : MonoBehaviour
     public Animator anim;
     
     [Tooltip("Speed for player moving right and left")]
-    public float Speed = 10f; 
+    public float Speed = 10f;
+
+    [HideInInspector]public float laneSwitchTimer;
+    
     
     [Tooltip("Place each node at the preferred location in the scene. Assign respective gameobject here.")]
     [Header("Nodes for player position")]
@@ -38,20 +41,26 @@ public class CharacterMovement : MonoBehaviour
     void Update()
     {
        getKeyInput();
+
+       laneSwitchTimer -= Time.deltaTime;
+
+       if (laneSwitchTimer < 0f)
+           laneSwitchTimer = 0f;
     }
 
     public void getKeyInput()
     {
         anim.SetInteger("Move Direction", 0);
-
-
-
+        
         anim.SetBool("Crouch", Input.GetKey(KeyCode.LeftControl));
 
-        if (Input.GetKeyDown(KeyCode.A))
+        
+        if (Input.GetKeyDown(KeyCode.A) && laneSwitchTimer <= 0f)
         {
             anim.SetInteger("Move Direction", -1);
 
+            laneSwitchTimer = 0f;
+            
             previousPosition = currentPosition;
             currentPosition -= 1;
             if (Convert.ToInt32(currentPosition) < 0)
@@ -60,10 +69,12 @@ public class CharacterMovement : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D) && laneSwitchTimer <= 0f)
         {
             anim.SetInteger("Move Direction", 1);
 
+            laneSwitchTimer = 0f;
+            
             previousPosition = currentPosition;
             currentPosition += 1; 
             if (Convert.ToInt32(currentPosition) > 2)
