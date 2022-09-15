@@ -60,7 +60,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2edd5ec20f2860e4283bee9d271acd1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
 --- !u!1 &4529678522331179693
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,7 +120,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bb89ef481ed948848aea9924e868c455, type: 2}
+  - {fileID: 2100000, guid: ccd71bfe8e1f9ef4b9caaa0e4919275b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -216,7 +215,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bb89ef481ed948848aea9924e868c455, type: 2}
+  - {fileID: 2100000, guid: ccd71bfe8e1f9ef4b9caaa0e4919275b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -311,7 +310,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bb89ef481ed948848aea9924e868c455, type: 2}
+  - {fileID: 2100000, guid: ccd71bfe8e1f9ef4b9caaa0e4919275b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -791,7 +790,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle_1 (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6576228777992741533, guid: f208e9f5898d9f545947913312176b3a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f208e9f5898d9f545947913312176b3a, type: 3}
 --- !u!4 &1515765860691378812 stripped
 Transform:
@@ -1091,7 +1091,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle_1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6576228777992741533, guid: f208e9f5898d9f545947913312176b3a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f208e9f5898d9f545947913312176b3a, type: 3}
 --- !u!4 &75583207699948406 stripped
 Transform:
@@ -1165,7 +1166,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle_1 (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6576228777992741533, guid: f208e9f5898d9f545947913312176b3a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f208e9f5898d9f545947913312176b3a, type: 3}
 --- !u!4 &8337453019162816637 stripped
 Transform:

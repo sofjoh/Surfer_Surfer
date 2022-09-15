@@ -57,7 +57,6 @@
      <Compile Include="Assets\Scripts\StartSceen\LoadGame.cs" />
      <Compile Include="Assets\Scripts\GameHandler\Stats.cs" />
      <Compile Include="Assets\Scripts\LevelGenerator\LevelGenerator.cs" />
-     <Compile Include="Assets\Scripts\skräp\Distance.cs" />
      <Compile Include="Assets\Scripts\skräp\GameOver.cs" />
      <Compile Include="Assets\Scripts\GameHandler\Countdown.cs" />
      <Compile Include="Assets\Scripts\GameHandler\SceneHandler.cs" />
@@ -65,7 +64,6 @@
      <Compile Include="Assets\Scripts\CameraShake.cs" />
      <Compile Include="Assets\Scripts\GameHandler\QuitApplication.cs" />
      <Compile Include="Assets\Scripts\Player\AnimationGameController.cs" />
-     <Compile Include="Assets\Scripts\Obstacle\Obstacle1.cs" />
      <Compile Include="Assets\Scripts\GameHandler\LevelController.cs" />
      <Compile Include="Assets\Scripts\StartSceen\StartOverGame.cs" />
      <Compile Include="Assets\Scripts\SimpleCameraController.cs" />

@@ -49,7 +49,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2edd5ec20f2860e4283bee9d271acd1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
 --- !u!1 &1618274711356002672
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,7 +503,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle Ramp
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6576228777992741533, guid: 3fc1fd40f71df7140ac0f6d8a898450d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3fc1fd40f71df7140ac0f6d8a898450d, type: 3}
 --- !u!4 &3517927232401446795 stripped
 Transform:
@@ -1878,7 +1878,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle_1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6576228777992741533, guid: f208e9f5898d9f545947913312176b3a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f208e9f5898d9f545947913312176b3a, type: 3}
 --- !u!4 &4655133717952575335 stripped
 Transform:

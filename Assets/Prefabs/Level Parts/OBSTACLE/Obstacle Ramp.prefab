@@ -4687,7 +4687,6 @@ GameObject:
   - component: {fileID: 4339265327762394016}
   - component: {fileID: 5007844180562918494}
   - component: {fileID: 2154545953730988918}
-  - component: {fileID: 6576228777992741533}
   - component: {fileID: -3367650533191564886}
   m_Layer: 0
   m_Name: Obstacle Ramp
@@ -4763,18 +4762,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6576228777992741533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7607279772787942586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8d73645dd0632b47bc1c2a467e2358c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &-3367650533191564886
 Rigidbody:
   m_ObjectHideFlags: 0
