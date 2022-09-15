@@ -10,8 +10,8 @@ public class Stats : MonoBehaviour
    
     [HideInInspector] public float distance;
 
-     public float HighscoreDistance;
-     public int HighscoreCoins;
+    [HideInInspector] public float HighscoreDistance;
+    [HideInInspector] public int HighscoreCoins;
 
     [Tooltip("Text for coin count")]
     public TextMeshProUGUI CoinsText;

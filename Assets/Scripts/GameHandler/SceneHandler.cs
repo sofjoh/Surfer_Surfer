@@ -23,8 +23,6 @@ public class SceneHandler : MonoBehaviour
     public TextMeshProUGUI HighscoreCoins;
     private LevelGenerator lvlgen;
 
-    public bool deleteAllTiles;
-
     private void Start()
     {
         lvlgen = LevelGenerator.lvlGen;

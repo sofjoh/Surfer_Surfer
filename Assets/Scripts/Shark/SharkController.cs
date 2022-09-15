@@ -25,6 +25,7 @@ public class SharkController : MonoBehaviour
     {
         gameController = FindObjectOfType<SceneHandler>().gameObject;
         sceneHandler = gameController.GetComponent<SceneHandler>();
+        transform.position = SharkNode.position;
     }
 
     void Update()

@@ -12,11 +12,8 @@ public class PlayerCollisionHandler : MonoBehaviour
     public GameObject LevelGenerator;
     public GameObject Shark;
 
-    //private RaycastHit hit;
-
     public bool ForwardhitToggle;
-    private bool SidehitToggle;
-    
+
     private CharacterMovement.Position prevpos;
     private Transform prevnode;
 
@@ -41,7 +38,6 @@ public class PlayerCollisionHandler : MonoBehaviour
 
     private void sharkGoBack()
     {
-        //om inte död 
         sharkController.sharkGo = false;
         sharkController.sharkGoBack = true;
         LevelGenerator.GetComponent<LevelGenerator>().ObstacleSpeed = originalSpeed;
@@ -70,7 +66,6 @@ public class PlayerCollisionHandler : MonoBehaviour
         GetComponent<CharacterMovement>().currentPosition = prevpos;
         GetComponent<CharacterMovement>().currentNode = prevnode;
         GetComponent<CharacterMovement>().MovePlayer();
-        SidehitToggle = true;
     }
 
 
