@@ -57,16 +57,13 @@
      <Compile Include="Assets\Scripts\StartSceen\LoadGame.cs" />
      <Compile Include="Assets\Scripts\GameHandler\Stats.cs" />
      <Compile Include="Assets\Scripts\LevelGenerator\LevelGenerator.cs" />
-     <Compile Include="Assets\Scripts\skräp\GameOver.cs" />
      <Compile Include="Assets\Scripts\GameHandler\Countdown.cs" />
      <Compile Include="Assets\Scripts\GameHandler\SceneHandler.cs" />
-     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
      <Compile Include="Assets\Scripts\CameraShake.cs" />
      <Compile Include="Assets\Scripts\GameHandler\QuitApplication.cs" />
      <Compile Include="Assets\Scripts\Player\AnimationGameController.cs" />
      <Compile Include="Assets\Scripts\GameHandler\LevelController.cs" />
      <Compile Include="Assets\Scripts\StartSceen\StartOverGame.cs" />
-     <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
      <Compile Include="Assets\Scripts\Pickups\CoinCollect.cs" />
      <Compile Include="Assets\Scripts\Player\GroundCheck.cs" />
      <Compile Include="Assets\Scripts\LevelParts\movePlatform.cs" />
@@ -80,7 +77,6 @@
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
-     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />

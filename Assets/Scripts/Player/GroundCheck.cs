@@ -19,7 +19,7 @@ public class GroundCheck : MonoBehaviour
     public float maxFall;
     [Tooltip("Player weight. Affects the player's fall speed")]
     public float weight;
-    [Tooltip("Player offset from water i y")]
+    [Tooltip("Player offset from water in y")]
     public float offset;
     public LayerMask groundLayer;
     [Tooltip("Force upward for player jump. Should always be negative.")]
@@ -54,6 +54,7 @@ public class GroundCheck : MonoBehaviour
         }
         else
         {
+            //om man är i luften lerpas fallspeed tillbaka till maxfall vilket är ett positivt värde
             fallSpeed = Mathf.Lerp(fallSpeed, maxFall, weight * Time.deltaTime);
             onWater = false;
             animator.SetBool("Hard Surface", false);

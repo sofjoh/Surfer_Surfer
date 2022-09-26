@@ -11,7 +11,6 @@ public class StartOverGame : MonoBehaviour
 
     public void restartGame()
     {
-        GetComponent<GameOver>().Dead = false;
         Time.timeScale = 1; 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }

@@ -15,6 +15,7 @@ public class AnimationGameController : MonoBehaviour
 
     void Jump()
     {
+        //fallspeed sätts till det negativa värdet jumpforce vilket gör att man åker uppåt
         gCheck.fallSpeed = gCheck.JumpForce;
         GetComponent<Animator>().SetBool("Jump", false);
     }
